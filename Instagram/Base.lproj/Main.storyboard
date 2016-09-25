@@ -174,9 +174,50 @@
                     <view key="view" contentMode="scaleToFill" id="QLH-R0-u5g">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PEB-G4-np6">
+                                <rect key="frame" x="57" y="100" width="300" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="V5A-Nf-h85"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x9u-MZ-MA8">
+                                <rect key="frame" x="57" y="140" width="300" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="DNB-h2-Lf7"/>
+                                </constraints>
+                                <state key="normal" title="表示名を変更" backgroundImage="btn"/>
+                                <connections>
+                                    <action selector="handleChangeButton:" destination="OMX-8j-Uf1" eventType="touchUpInside" id="kKe-zg-XBV"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gu8-yc-UN9">
+                                <rect key="frame" x="57" y="190" width="300" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="fev-xH-H7y"/>
+                                </constraints>
+                                <state key="normal" title="ログアウト" backgroundImage="btn"/>
+                                <connections>
+                                    <action selector="handleLogoutButton:" destination="OMX-8j-Uf1" eventType="touchUpInside" id="m0s-Tn-Icc"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="PEB-G4-np6" firstAttribute="top" secondItem="zV9-RU-oX5" secondAttribute="bottom" constant="80" id="Jx4-3A-5Me"/>
+                            <constraint firstItem="gu8-yc-UN9" firstAttribute="top" secondItem="x9u-MZ-MA8" secondAttribute="bottom" constant="10" id="Ndo-4i-m4p"/>
+                            <constraint firstItem="x9u-MZ-MA8" firstAttribute="top" secondItem="PEB-G4-np6" secondAttribute="bottom" constant="10" id="YAZ-oE-2g6"/>
+                            <constraint firstItem="x9u-MZ-MA8" firstAttribute="centerX" secondItem="QLH-R0-u5g" secondAttribute="centerX" id="oa7-s6-gRx"/>
+                            <constraint firstItem="PEB-G4-np6" firstAttribute="centerX" secondItem="QLH-R0-u5g" secondAttribute="centerX" id="rdK-9a-Q4X"/>
+                            <constraint firstItem="gu8-yc-UN9" firstAttribute="centerX" secondItem="QLH-R0-u5g" secondAttribute="centerX" id="tDS-9g-SJ9"/>
+                        </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
+                    <connections>
+                        <outlet property="displayNameTextField" destination="PEB-G4-np6" id="BaL-tu-nuV"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rcG-lF-n1P" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
