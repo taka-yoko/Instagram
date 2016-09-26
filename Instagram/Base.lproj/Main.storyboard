@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -195,9 +196,58 @@
                     <view key="view" contentMode="scaleToFill" id="Lhm-9R-oPo">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Afw-23-IuW">
+                                <rect key="frame" x="20" y="40" width="120" height="120"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="120" id="2OD-Lc-jMM"/>
+                                    <constraint firstAttribute="height" constant="120" id="68o-cW-bNa"/>
+                                </constraints>
+                            </imageView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="キャプション" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bkw-Me-IiW">
+                                <rect key="frame" x="150" y="130" width="244" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vLt-cz-gPS">
+                                <rect key="frame" x="57" y="180" width="300" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="RMu-jB-w8l"/>
+                                </constraints>
+                                <state key="normal" title="投稿" backgroundImage="btn"/>
+                                <connections>
+                                    <action selector="handlePostButton:" destination="jpn-yq-7F6" eventType="touchUpInside" id="Jx4-nQ-LuG"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GRF-9q-5C4">
+                                <rect key="frame" x="57" y="230" width="300" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="pxK-2Q-jgt"/>
+                                </constraints>
+                                <state key="normal" title="キャンセル" backgroundImage="btn"/>
+                                <connections>
+                                    <action selector="handleCancelButton:" destination="jpn-yq-7F6" eventType="touchUpInside" id="amY-Ry-wEe"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="bkw-Me-IiW" firstAttribute="bottom" secondItem="Afw-23-IuW" secondAttribute="bottom" id="E26-T4-osb"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="bkw-Me-IiW" secondAttribute="trailing" id="Rgg-wc-XIC"/>
+                            <constraint firstItem="bkw-Me-IiW" firstAttribute="leading" secondItem="Afw-23-IuW" secondAttribute="trailing" constant="10" id="XF6-kd-sKk"/>
+                            <constraint firstItem="vLt-cz-gPS" firstAttribute="centerX" secondItem="Lhm-9R-oPo" secondAttribute="centerX" id="aBz-M4-Qv9"/>
+                            <constraint firstItem="GRF-9q-5C4" firstAttribute="centerX" secondItem="Lhm-9R-oPo" secondAttribute="centerX" id="bpC-gK-am1"/>
+                            <constraint firstItem="GRF-9q-5C4" firstAttribute="top" secondItem="vLt-cz-gPS" secondAttribute="bottom" constant="10" id="bxh-oe-pOS"/>
+                            <constraint firstItem="Afw-23-IuW" firstAttribute="top" secondItem="SCa-ce-LeI" secondAttribute="bottom" constant="20" id="lQC-UW-6oG"/>
+                            <constraint firstItem="vLt-cz-gPS" firstAttribute="top" secondItem="bkw-Me-IiW" secondAttribute="bottom" constant="20" id="peV-BV-pjs"/>
+                            <constraint firstItem="Afw-23-IuW" firstAttribute="leading" secondItem="Lhm-9R-oPo" secondAttribute="leadingMargin" id="wJP-tR-lgI"/>
+                        </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
+                    <connections>
+                        <outlet property="imageView" destination="Afw-23-IuW" id="ls0-6e-bGp"/>
+                        <outlet property="textField" destination="bkw-Me-IiW" id="2AH-d2-hVo"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bIv-0u-f09" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
