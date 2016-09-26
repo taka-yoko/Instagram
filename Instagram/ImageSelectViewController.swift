@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ImageSelectViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class ImageSelectViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, AdobeUXImageEditorViewControllerDelegate {
     
     @IBAction func handleLibraryButton(sender: AnyObject) {
         // ライブラリ（カメラロール）を指定してピッカーを開く
@@ -71,6 +71,23 @@ class ImageSelectViewController: UIViewController, UIImagePickerControllerDelega
     func imagePickerControllerDidCancel(picker: UIImagePickerController) {
         // 閉じる
         picker.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    // AdobeImageEditorで加工が終わったときに呼ばれる
+    func photoEditor(editor: AdobeUXImageEditorViewController, finishedWithImage image: UIImage?) {
+        // エディタ画面を閉じる
+        editor.dismissViewControllerAnimated(true, completion: nil)
+        
+        // 投稿の画面を開く
+        let postViewController = self.storyboard?.instantiateViewControllerWithIdentifier("Post") as! PostViewController
+        postViewController.image = image
+        presentViewController(postViewController, animated: true, completion: nil)
+    }
+    
+    // AdobeImageEditorで加工をキャンセルしたときに呼ばれる
+    func photoEditorCanceled(editor: AdobeUXImageEditorViewController) {
+        // エディタ画面を閉じる
+        editor.dismissViewControllerAnimated(true, completion: nil)
     }
     
 }
