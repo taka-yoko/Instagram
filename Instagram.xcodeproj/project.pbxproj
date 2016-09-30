@@ -39,7 +39,26 @@
 		CD938F9A1D9AC7A50033C386 /* PostData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD938F991D9AC7A50033C386 /* PostData.swift */; };
 		CD938F9D1D9ACA950033C386 /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD938F9B1D9ACA950033C386 /* PostTableViewCell.swift */; };
 		CD938F9E1D9ACA950033C386 /* PostTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD938F9C1D9ACA950033C386 /* PostTableViewCell.xib */; };
+		CDA0F6B91D9E731C008D1B72 /* AdobeCreativeSDKImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD938F781D981FDC0033C386 /* AdobeCreativeSDKImage.framework */; };
+		CDA0F6BA1D9E731C008D1B72 /* AdobeCreativeSDKImage.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CD938F781D981FDC0033C386 /* AdobeCreativeSDKImage.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		CDA0F6BC1D9E732E008D1B72 /* AdobeCreativeSDKCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD938F791D981FDC0033C386 /* AdobeCreativeSDKCore.framework */; };
+		CDA0F6BD1D9E732E008D1B72 /* AdobeCreativeSDKCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CD938F791D981FDC0033C386 /* AdobeCreativeSDKCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		CDA0F6BB1D9E731C008D1B72 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				CDA0F6BA1D9E731C008D1B72 /* AdobeCreativeSDKImage.framework in Embed Frameworks */,
+				CDA0F6BD1D9E732E008D1B72 /* AdobeCreativeSDKCore.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		2B88C13A1D97BC49005125D5 /* Instagram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Instagram.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -100,7 +119,9 @@
 				CD938F811D9820C30033C386 /* libc++.tbd in Frameworks */,
 				CD938F7B1D981FDC0033C386 /* AdobeCreativeSDKCore.framework in Frameworks */,
 				CD938F7A1D981FDC0033C386 /* AdobeCreativeSDKImage.framework in Frameworks */,
+				CDA0F6B91D9E731C008D1B72 /* AdobeCreativeSDKImage.framework in Frameworks */,
 				604DBBE7CECB55681C993864 /* Pods_Instagram.framework in Frameworks */,
+				CDA0F6BC1D9E732E008D1B72 /* AdobeCreativeSDKCore.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -195,6 +216,7 @@
 				2B88C1381D97BC49005125D5 /* Resources */,
 				AF0677DB665B9000EC91F488 /* [CP] Embed Pods Frameworks */,
 				F2B6E4E6C3DC846E948FB9F7 /* [CP] Copy Pods Resources */,
+				CDA0F6BB1D9E731C008D1B72 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
