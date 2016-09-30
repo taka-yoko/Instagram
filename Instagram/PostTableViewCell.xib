@@ -136,6 +136,13 @@
                     </mask>
                 </variation>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="captionLabel" destination="ZYq-Cz-5cp" id="r4k-DL-MTQ"/>
+                <outlet property="dateLabel" destination="Llc-MZ-zFP" id="4Ti-gh-DbE"/>
+                <outlet property="likeButton" destination="P08-fj-sK9" id="f1U-js-snk"/>
+                <outlet property="likeLabel" destination="WPJ-hc-582" id="Zz9-9x-yHa"/>
+                <outlet property="postImageView" destination="d3b-Xe-CRS" id="FRU-c2-5Rg"/>
+            </connections>
             <point key="canvasLocation" x="413" y="458"/>
         </tableViewCell>
     </objects>
