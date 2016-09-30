@@ -41,12 +41,26 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
         if FIRAuth.auth()?.currentUser != nil {
             if observing == false {
-                //要素が追加されたらpostArrayに追加してTableViewを再表示する
-                FIRDatabase.database().reference().child(CommonConst.PostPATH).observeEventType(.ChildChanged, withBlock: {snapshot in
-                    if let uid = FIRAuth.auth()?.currentUser?.uid{
-                        //PostDataクラスを生成して受け取ったデータを設定する
+                // 要素が追加されたらpostArrayに追加してTableViewを再表示する
+                FIRDatabase.database().reference().child(CommonConst.PostPATH).observeEventType(.ChildAdded, withBlock: { snapshot in
+                    
+                    // PostDataクラスを生成して受け取ったデータを設定する
+                    if let uid = FIRAuth.auth()?.currentUser?.uid {
                         let postData = PostData(snapshot: snapshot, myId: uid)
-                        //保持している配列からidが同じものを探す
+                        self.postArray.insert(postData, atIndex: 0)
+                        
+                        // TableViewを再表示する
+                        self.tableView.reloadData()
+                    }
+                })
+                
+                // 要素が変更されたら該当のデータをpostArrayから一度削除した後に新しいデータを追加してTableViewを再表示する
+                FIRDatabase.database().reference().child(CommonConst.PostPATH).observeEventType(.ChildChanged, withBlock: { snapshot in
+                    if let uid = FIRAuth.auth()?.currentUser?.uid {
+                        // PostDataクラスを生成して受け取ったデータを設定する
+                        let postData = PostData(snapshot: snapshot, myId: uid)
+                        
+                        // 保持している配列からidが同じものを探す
                         var index: Int = 0
                         for post in self.postArray {
                             if post.id == postData.id {
@@ -55,17 +69,15 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
                             }
                         }
                         
-                        //差し替えるため一度削除
+                        // 差し替えるため一度削除する
                         self.postArray.removeAtIndex(index)
                         
-                        //削除した所に更新済みのデータを追加する
+                        // 削除したところに更新済みのでデータを追加する
                         self.postArray.insert(postData, atIndex: index)
                         
-                        //TableViewの現在表示されているセルを更新する
+                        // TableViewの現在表示されているセルを更新する
                         self.tableView.reloadData()
-                        
                     }
-                    
                 })
                 
                 //FIRDatabaseのobserverEventが上記コードにより登録されたため
