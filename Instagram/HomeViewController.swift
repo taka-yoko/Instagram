@@ -43,7 +43,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
             if observing == false {
                 // 要素が追加されたらpostArrayに追加してTableViewを再表示する
                 FIRDatabase.database().reference().child(CommonConst.PostPATH).observeEventType(.ChildAdded, withBlock: { snapshot in
-                    
+                    print(CommonConst.PostPATH)
                     // PostDataクラスを生成して受け取ったデータを設定する
                     if let uid = FIRAuth.auth()?.currentUser?.uid {
                         let postData = PostData(snapshot: snapshot, myId: uid)
@@ -113,6 +113,8 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         // セル内のボタンのアクションをソースコードで設定する
         cell.likeButton.addTarget(self, action:#selector(handleButton(_:event:)), forControlEvents:  UIControlEvents.TouchUpInside)
         
+         cell.commentButton.addTarget(self, action:#selector(handleCommentButton(_:event:)), forControlEvents:  UIControlEvents.TouchUpInside)
+        
         return cell
     }
     
@@ -165,6 +167,12 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
             let postRef = FIRDatabase.database().reference().child(CommonConst.PostPATH)
             postRef.child(postData.id!).setValue(post)
         }
+    }
+    
+    
+    func handleCommentButton(sender: UIButton, event:UIEvent) {
+        let commentViewController = self.storyboard?.instantiateViewControllerWithIdentifier("Comment")
+        self.presentViewController(commentViewController!, animated: true, completion: nil)
     }
     
 }
