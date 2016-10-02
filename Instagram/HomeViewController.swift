@@ -43,7 +43,6 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
             if observing == false {
                 // 要素が追加されたらpostArrayに追加してTableViewを再表示する
                 FIRDatabase.database().reference().child(CommonConst.PostPATH).observeEventType(.ChildAdded, withBlock: { snapshot in
-                    print(CommonConst.PostPATH)
                     // PostDataクラスを生成して受け取ったデータを設定する
                     if let uid = FIRAuth.auth()?.currentUser?.uid {
                         let postData = PostData(snapshot: snapshot, myId: uid)
@@ -171,8 +170,19 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     
     func handleCommentButton(sender: UIButton, event:UIEvent) {
-        let commentViewController = self.storyboard?.instantiateViewControllerWithIdentifier("Comment")
-        self.presentViewController(commentViewController!, animated: true, completion: nil)
+        
+        // タップされたセルのインデックスを求める
+        let touch = event.allTouches()?.first
+        let point = touch!.locationInView(self.tableView)
+        let indexPath = tableView.indexPathForRowAtPoint(point)
+        
+        // 配列からタップされたインデックスのデータを取り出す
+        let postData = postArray[indexPath!.row]
+        let commentViewController = self.storyboard?.instantiateViewControllerWithIdentifier("Comment") as! CommentViewController
+        
+        commentViewController.postData = postData
+        
+        self.presentViewController(commentViewController, animated: true, completion: nil)
     }
     
 }

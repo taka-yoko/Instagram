@@ -242,6 +242,7 @@
 				TargetAttributes = {
 					2B88C1391D97BC49005125D5 = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = FCHLM2BSCE;
 					};
 				};
 			};
@@ -457,6 +458,8 @@
 			baseConfigurationReference = CAF2343641637DB92ABE2475 /* Pods-Instagram.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Instagram",
@@ -512,6 +515,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = jp.techacademy.takayoshi.yokoyama.Instagram;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Instagram/Instagram-Bridging-Header.h";
 			};
 			name = Debug;
@@ -521,6 +525,8 @@
 			baseConfigurationReference = 695CED556D9B87DFF769D8C5 /* Pods-Instagram.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Instagram",
@@ -576,6 +582,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = jp.techacademy.takayoshi.yokoyama.Instagram;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Instagram/Instagram-Bridging-Header.h";
 			};
 			name = Release;

@@ -36,7 +36,15 @@ class PostTableViewCell: UITableViewCell {
         captionLabel.text = "\(postData.name!) : \(postData.caption!)"
         let likeNumber = postData.likes.count
         likeLabel.text = "\(likeNumber)"
-        commentLabel.text = postData.comment
+        
+        
+        //コメント
+        var commentText:String = ""
+        //コメント者と名前を追加
+        for i in 0..<postData.comments.count {
+            commentText = commentText + postData.comments[i]["name"]! + " : " + postData.comments[i]["comment"]! + "\n"
+        }
+        commentLabel.text = commentText
         
         let formatter = NSDateFormatter()
         formatter.locale = NSLocale(localeIdentifier: "ja_JP")
